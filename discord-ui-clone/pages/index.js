@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <>
-      <div className="h-[95vh] bg-[#404eed] relative">
+      <div className="h-[95vh] bg-[#404eed] relative z-10">
         <div>
           <div className="flex justify-between items-center py-5 w-[90%] mx-auto">
             <div className="hover:cursor-pointer">
@@ -75,7 +75,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="relative">
+        <div className="relative h-[88%] overflow-hidden">
           <div className="text-white w-[60%] mx-auto mt-32 text-center">
             <h1 className="uppercase text-7xl ">Imagine a place ...</h1>
             <p className="mt-8 text-lg">
@@ -109,7 +109,14 @@ export default function Home() {
               </button>
             </div>
           </div>
-          {/* <div className="absolute -left-80 -bottom-32">
+          {/* <div className="w-[100%] absolute -bottom-10 border-2 border-red-600 -z-10 left-0"> */}
+          <img
+            src="/assets/center_bg_landing_header.svg"
+            alt="landing_image"
+            className="absolute bottom-1 -z-10 w-full cover"
+          />
+          {/* </div> */}
+          <div className="absolute -left-80 -bottom-40">
             <Image
               src="/assets/left_bg_landing_header.svg"
               alt="landing_image"
@@ -117,14 +124,14 @@ export default function Home() {
               height={640}
             />
           </div>
-          <div className="absolute -right-80 -bottom-28 border-2 overflow-hidden">
+          <div className="absolute -right-80 -bottom-32 overflow-hidden">
             <Image
               src="/assets/right_bg_landing_header.svg"
               alt="landing_image"
               width={640}
               height={640}
             />
-          </div> */}
+          </div>
         </div>
       </div>
       <Section
