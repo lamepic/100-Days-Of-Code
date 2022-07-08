@@ -42,7 +42,9 @@ function login() {
         </div>
         <div className="flex-[0.4]">
           <div className="w-[80%] mx-auto flex flex-col items-center text-center">
-            <Image src="/assets/qr_code.png" width={200} height={200} />
+            <div className="rounded-md overflow-hidden w-48 h-48">
+              <Image src="/assets/qr_code.png" width={300} height={300} />
+            </div>
             <p className="text-[#f6f6f6] text-3xl font-semibold mt-5">
               Login with QR Code
             </p>
