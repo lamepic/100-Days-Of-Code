@@ -1,8 +1,28 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 function signup() {
+  const { user, signup } = useAuth();
+  const router = useRouter();
+
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      await signup(data.email, data.password);
+      router.push("/dashboard");
+    } catch (e) {
+      alert(e);
+    }
+  };
+
   return (
     <div className="bg-[url('../public/assets/login_bg.svg')] bg-cover h-[100vh] grid place-items-center">
       <div className="w-[35%] rounded bg-[#36393F] py-10">
@@ -12,12 +32,21 @@ function signup() {
               Create an Account
             </p>
           </div>
-          <div className="flex flex-col gap-3 mt-5 w-[90%] mx-auto">
+          <form
+            className="flex flex-col gap-3 mt-5 w-[90%] mx-auto"
+            onSubmit={handleSignup}
+          >
             <label className="flex flex-col text-[#8e9297] uppercase text-xs gap-1 font-bold">
               Email
               <input
                 type="text"
                 className="p-3 rounded bg-[#202225] focus:outline-none"
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    email: e.target.value,
+                  })
+                }
               />
             </label>
             <label className="flex flex-col text-[#8e9297] uppercase text-xs gap-1 font-semibold">
@@ -32,6 +61,12 @@ function signup() {
               <input
                 type="password"
                 className="p-3 rounded bg-[#202225] focus:outline-none"
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    password: e.target.value,
+                  })
+                }
               />
             </label>
             <label className="flex flex-col text-[#8e9297] uppercase text-xs gap-1 mt-2 font-semibold">
@@ -63,7 +98,7 @@ function signup() {
               By registering, you agree to Discord's Terms of Service and
               Privacy Policy
             </p>
-          </div>
+          </form>
         </div>
       </div>
     </div>
