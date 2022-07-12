@@ -30,7 +30,7 @@ const AuthContextProvider = ({ children }) => {
     });
 
     return () => unsuscribe();
-  }, []);
+  }, [onAuthStateChanged]);
 
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
