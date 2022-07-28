@@ -6,7 +6,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        hero: "url('/assets/images/hero.jpg')",
+      },
+    },
+    fontFamily: {
+      custom: ["ubuntu-mono", "Ubuntu", "sans-serif"],
+    },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
