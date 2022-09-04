@@ -6,7 +6,6 @@ function Hero() {
     <>
       <div className="md:p-5">
         <div className="bg-hero w-full h-96 cover bg-right flex flex-col justify-between relative md:px-16">
-          {/* <div className="h-[100%] w-[100%] opacity-[0.3] bg-black absolute top-0 left-0"></div> */}
           <div className="h-[100%] w-[100%] absolute top-0 left-0 bg-gradient-to-t md:bg-gradient-to-r from-black"></div>
           <div className="text-2xl p-6 font-semibold z-10 md:mt-5 md:text-4xl">
             <p className="text-white">Your favorite customized </p>

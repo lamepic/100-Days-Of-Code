@@ -2,12 +2,14 @@ import React from "react";
 
 function CollectionCard({ title, img }) {
   return (
-    <div
-      className={`bg-[url('/assets/images/other-collections/${img}')] h-40 md:h-52 bg-cover md:contain relative`}
-    >
-      <div className="flex justify-between items-center absolute bottom-0 left-0 w-full backdrop-blur-md cursor-pointer">
-        <p className="pl-3 text-white">{title}</p>
-        <div className="p-4 bg-[#F9DC38] ml-auto">
+    <div className="relative cursor-pointer">
+      <img
+        src={`/assets/images/other-collections/${img}`}
+        className="bg-cover h-30 md:h-56 md:bg-cover"
+      />
+      <div className="flex justify-between items-center absolute bottom-0 left-0 w-[100%] backdrop-blur-md cursor-pointer z-10">
+        <p className="pl-3 text-white text-xs md:text-sm">{title}</p>
+        <div className="p-2 md:p-4 bg-[#F9DC38] ml-auto">
           <svg
             width="6"
             height="10"

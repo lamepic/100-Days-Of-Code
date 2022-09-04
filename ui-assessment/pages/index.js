@@ -2,54 +2,16 @@ import Head from "next/head";
 import Image from "next/image";
 import CollectionCard from "../components/CollectionCard";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 import Hero from "../components/Hero";
 import LeagueCard from "../components/LeagueCard";
 import Navbar from "../components/Navbar";
 import ShirtCard from "../components/ShirtCard";
+import { shirtData, leagueData, collectionData } from "../lib/data";
 
 export default function Home() {
   return (
     <div>
-      <div className="bg-black text-white flex items-center justify-between">
-        <div className="flex items-center gap-1 md:px-10 px-2 py-2 bg-[#242425]">
-          <Image
-            src="/assets/icons/svg/globe.svg"
-            height={12}
-            width={12}
-            alt="whatsapp"
-          />
-          <p className="text-xs">EN</p>
-          <span>
-            <svg
-              width="6"
-              height="4"
-              viewBox="0 0 6 4"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.36728 3.60241C3.16932 3.81671 2.83068 3.81671 2.63272 3.60241L0.311188 1.08928C0.0153625 0.769035 0.242499 0.25 0.678465 0.25L5.32154 0.25C5.7575 0.25 5.98464 0.769036 5.68881 1.08928L3.36728 3.60241Z"
-                fill="white"
-              />
-            </svg>
-          </span>
-        </div>
-        <p className="text-[0.62rem] text-[#ffffffcc]">
-          SALES BEGIN•FREE SHIPPING ON ALL ORDERS
-        </p>
-        <div className="bg-[#27B03F] flex items-center gap-2 md:px-10 px-2 py-2">
-          <Image
-            src="/assets/icons/svg/whatsapp.svg"
-            height={15}
-            width={15}
-            alt="whatsapp"
-          />
-          <p className="text-xs">
-            Chat <span className="md:inline-block hidden">with us</span>
-          </p>
-        </div>
-      </div>
-      <Navbar />
       <Hero />
       <div className="md:px-16 px-5 mt-10">
         <div className="flex items-center justify-between md:text-2xl">
@@ -86,48 +48,30 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-5 flex overflow-x-auto gap-2 w-[100%] scrollbar-hide">
-          <ShirtCard
-            img="product-medium.jpg"
-            title="Manchester United 21-22"
-            newPrice="€30.00"
-            oldPrice="€89.95"
-          />
-          <ShirtCard
-            img="product-medium.jpg"
-            title="Manchester United 21-22"
-            newPrice="€30.00"
-            oldPrice="€89.95"
-          />
-          <ShirtCard
-            img="product-medium.jpg"
-            title="Manchester United 21-22"
-            newPrice="€30.00"
-            oldPrice="€89.95"
-          />
-          <ShirtCard
-            img="product-medium.jpg"
-            title="Manchester United 21-22"
-            newPrice="€30.00"
-            oldPrice="€89.95"
-          />
-          <ShirtCard
-            img="product-medium.jpg"
-            title="Manchester United 21-22"
-            newPrice="€30.00"
-            oldPrice="€89.95"
-          />
+          {shirtData.map((shirt, idx) => {
+            const { img, newPrice, oldPrice, title, subtitle } = shirt;
+            return (
+              <ShirtCard
+                img={img}
+                title={title}
+                newPrice={newPrice}
+                oldPrice={oldPrice}
+                subtitle={subtitle}
+                key={idx}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="md:px-16 px-5 mt-16">
         <h1 className="uppercase font-extrabold md:text-2xl">
           Country Leagues
         </h1>
-        <div className="mt-10 grid md:grid-cols-5 grid-cols-2 gap-2">
-          <LeagueCard title="champions league" img="champions-league.jpg" />
-          <LeagueCard title="champions league" img="champions-league.jpg" />
-          <LeagueCard title="champions league" img="champions-league.jpg" />
-          <LeagueCard title="champions league" img="champions-league.jpg" />
-          <LeagueCard title="champions league" img="champions-league.jpg" />
+        <div className="mt-10 grid md:grid-cols-5 grid-cols-2 gap-2 gap-y-4">
+          {leagueData.map((league, idx) => {
+            const { title, img } = league;
+            return <LeagueCard title={title} img={img} key={idx} />;
+          })}
         </div>
       </div>
       <div className="md:px-16 px-5 mt-16">
@@ -135,12 +79,10 @@ export default function Home() {
           Other Collections
         </h1>
         <div className="mt-10 grid md:grid-cols-3 grid-cols-2 gap-5">
-          <CollectionCard title="Kids" img="kids.jpg" />
-          <CollectionCard title="Kids" img="kids.jpg" />
-          <CollectionCard title="Kids" img="kids.jpg" />
-          <CollectionCard title="Kids" img="kids.jpg" />
-          <CollectionCard title="Kids" img="kids.jpg" />
-          <CollectionCard title="Kids" img="kids.jpg" />
+          {collectionData.map((collection, idx) => {
+            const { title, img } = collection;
+            return <CollectionCard title={title} img={img} key={img} />;
+          })}
         </div>
       </div>
 
@@ -193,7 +135,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

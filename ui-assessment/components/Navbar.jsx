@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Navbar() {
@@ -27,8 +28,8 @@ function Navbar() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M11.2907 10.3433C12.2088 9.24903 12.7616 7.83803 12.7616 6.2979C12.7616 2.81967 9.94191 5.9873e-07 6.46368 0C2.98544 1.52039e-07 0.165771 2.81967 0.165771 6.2979C0.165771 9.77614 2.98544 12.5958 6.46368 12.5958C7.83398 12.5958 9.10207 12.1582 10.1358 11.415L12.7208 14L13.8341 12.8867L11.2907 10.3433ZM11.1871 6.2979C11.1871 8.90658 9.07235 11.0213 6.46368 11.0213C3.855 11.0213 1.74025 8.90658 1.74025 6.2979C1.74025 3.68923 3.855 1.57448 6.46368 1.57448C9.07235 1.57448 11.1871 3.68923 11.1871 6.2979Z"
               fill="black"
             />
@@ -113,8 +114,8 @@ function Navbar() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M11.2907 10.3433C12.2088 9.24903 12.7616 7.83803 12.7616 6.2979C12.7616 2.81967 9.94191 5.9873e-07 6.46368 0C2.98544 1.52039e-07 0.165771 2.81967 0.165771 6.2979C0.165771 9.77614 2.98544 12.5958 6.46368 12.5958C7.83398 12.5958 9.10207 12.1582 10.1358 11.415L12.7208 14L13.8341 12.8867L11.2907 10.3433ZM11.1871 6.2979C11.1871 8.90658 9.07235 11.0213 6.46368 11.0213C3.855 11.0213 1.74025 8.90658 1.74025 6.2979C1.74025 3.68923 3.855 1.57448 6.46368 1.57448C9.07235 1.57448 11.1871 3.68923 11.1871 6.2979Z"
                     fill="white"
                   />
@@ -122,8 +123,8 @@ function Navbar() {
               </div>
             </div>
           </div>
-          <div className="flex-[0.2] flex items-center justify-around gap-2 py-[0.8rem]">
-            <span className="cursor-pointer">
+          <div className="flex-[0.2] flex items-center justify-around">
+            <div className="cursor-pointer py-[0.8rem] flex[0.5]">
               <svg
                 width="20"
                 height="20"
@@ -136,8 +137,9 @@ function Navbar() {
                   fill="#111112"
                 />
               </svg>
-            </span>
-            <span className="flex items-center gap-1 cursor-pointer">
+            </div>
+            <div className="border h-12"></div>
+            <div className="flex items-center gap-1 cursor-pointer flex[0.5]">
               <svg
                 width="20"
                 height="20"
@@ -162,12 +164,12 @@ function Navbar() {
                   fill="#111112"
                 />
               </svg>
-            </span>
+            </div>
           </div>
         </div>
         <div className="px-10 flex items-center gap-14 text-sm">
           <p className="border-b-2 border-[#F9DC38] py-1 cursor-pointer">
-            Home
+            <Link href="/">Home</Link>
           </p>
           <p className="flex gap-2 items-center cursor-pointer">
             T-Shirts
